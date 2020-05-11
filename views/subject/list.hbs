@@ -1,0 +1,47 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col" style="padding-top: 10px;">
+            <a class="home-icon" href="/admin-desk" style="float: left;"><i class="fa fa-home"></i></a>
+        </div>
+    </div>
+    <div class="row justify-content-center align-items-center">
+        <div class="col-sm-8 col-md-8 col-lg-8"
+            style="background-color: #fff;margin-top: 3%;margin-bottom:3%;padding:25px;border-radius:6px;">
+            <h3>
+                Subjects<a class="btn btn-dark" href="/subject/addOrUpdate" style="float: right;">Add&nbsp;<i
+                        class="fa fa-plus"></i></a>
+            </h3><br />
+            <div class="table-responsive-sm table-responsive-md table-responsive-lg">
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col" style="width:25%;">Subject ID</th>
+                            <th scope="col">Subject Name</th>
+                            <th class="text-center" scope="col" style="width:18%;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each list}}
+                        <tr>
+                            <td>{{this.subjectId}}</td>
+                            <td>{{this.subjectName}}</td>
+                            <td class="d-flex justify-content-around">
+                                <a href="/subject/addOrUpdate/{{this._id}}"><i class="fa fa-pencil fa-lg"
+                                        aria-hidden="true"></i></a>
+                                &nbsp;&nbsp;
+                                <a href="/subject/delete/{{this.subjectId}}"
+                                    onclick="return confirm('Are you sure to delete this record ?');"><i
+                                        class="fa fa-trash fa-lg" aria-hidden="true" style="color: red;"></i></a>
+                            </td>
+                        </tr>
+                        {{else}}
+                        <tr>
+                            <td colspan="3" class="text-center">No data available</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

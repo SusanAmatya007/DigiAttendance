@@ -1,0 +1,40 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col shadow-content" style="padding-top: 10px;">
+            <h3 class="text-center" style="display:inline-block; color:#FFFFFF;"> Welcome! {{user}}</h3>
+            <a class="btn btn-danger float-right" href="/logout">Logout&nbsp;&nbsp;<i class="fa fa-sign-out" aria-hidden="true"></i></a>
+        </div>
+    </div>
+    <div class="row justify-content-center align-items-center">
+        <div class="col-sm-5 col-md-5 col-lg-5" style="background-color: #fff;margin-top: 6%;padding:0;border:0;border-radius:6px;">
+            <div class="card text-center">
+                <div class="card-header bg-dark">
+                    <ul class="nav nav-tabs card-header-tabs" id="teacherFeatures" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="attendance-tab" data-toggle="tab" href="#attendance" role="tab"
+                                aria-controls="attendance" aria-selected="false"><b>Attendance</b></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="student-tab" data-toggle="tab" href="#student" role="tab"
+                                aria-controls="student" aria-selected="true"><b>Student</b></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-content" id="teacherFeaturesContent">
+                    <div class="tab-pane card-body bg-light fade show active" id="attendance" role="tabpanel" aria-labelledby="attendance-tab">
+                        <br/>
+                        <a href="/attendance/home" class="btn btn-dark">Attendance Home</a>
+                        <br/><br/>
+                    </div>
+                    <div class="tab-pane card-body bg-light fade" id="student" role="tabpanel" aria-labelledby="student-tab">
+                        <br/>
+                        <a href="/student/list" class="btn btn-dark">View all Students</a>
+                        <br/><br/>
+                        <a href="/student/addOrUpdate" class="btn btn-dark">Add Student</a>
+                        <br/><br/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

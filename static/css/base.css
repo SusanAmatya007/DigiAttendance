@@ -1,0 +1,117 @@
+.body-background {
+    font-family: 'B612', sans-serif;
+    background-image: url("/assets/background.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment: fixed;
+}
+
+.nav-link {
+    color : #FFFFFF;
+}
+
+.nav-link:hover {
+    color : #FFFFFF;
+}
+
+.shadow-content {
+    -webkit-filter: drop-shadow(5px 5px 3px #111);
+    filter: drop-shadow(5px 5px 3px #111);
+}
+
+.home-icon {
+    color : #FFFFFF;
+    font-size: 50px;
+    -webkit-filter: drop-shadow(5px 5px 3px #111);
+    filter: drop-shadow(5px 5px 3px #111);
+}
+
+.home-icon:hover {
+    color : #DDDDDD;
+}
+
+.table-responsive-sm, .table-responsive-md, .table-responsive-lg {
+    max-height:350px;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #454d55;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #454d55;
+}
+
+.datepicker-dropdown {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.datepicker td, .datepicker th {
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 10px;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.select2-container--default .select2-selection--multiple {
+    width: 100%;
+    min-height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    border: 1px solid #ced4da;
+}
+
+.select2-container .select2-search--inline .select2-search__field {
+    margin-top: 0;
+}
+
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+    border : 1px solid #ced4da;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__rendered {
+    padding: 0;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    max-width: 260px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 3px;
+    margin-bottom: 2px;
+    margin-top: 2px;
+    background-color: #ebebeb;
+    color: #495057;
+    border: 0;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+    margin-right: 3px;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__clear {
+    margin-top: 1px;
+    margin-right: 6px;
+}
+
+.hidden-form-submit-btn {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}

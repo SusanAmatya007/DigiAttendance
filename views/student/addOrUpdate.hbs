@@ -1,0 +1,70 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col" style="padding-top: 10px;">
+            <a class="home-icon" href="/teacher-desk" style="float: left;"><i class="fa fa-home"></i></a>
+        </div>
+    </div>
+    <div class="row justify-content-center align-items-center">
+        <div class="col-sm-6 col-md-6 col-lg-6"
+            style="background-color: #fff;margin-top: 3%;margin-bottom:3%;padding:25px;border-radius:6px;">
+            <h3 class="text-center">{{formTitle}}&nbsp;&nbsp;<i class="fa fa-user-plus"></i></h3>
+            <hr>
+            <form action="/student/addOrUpdate" method="POST" autocomplete="off">
+                <input type="hidden" name="_id" value="{{student._id}}">
+                <div class="form-group">
+                    <label>Student ID</label>
+                    <input type="text" class="form-control" name="studentId" placeholder="Student ID"
+                        value="{{student.studentId}}">
+                    <div class="text-danger">{{student.studentIdError}}</div>
+                </div>
+                <div class="form-group">
+                    <label>Student Name</label>
+                    <input type="text" class="form-control" name="studentName" placeholder="Student Name"
+                        value="{{student.studentName}}">
+                    <div class="text-danger">{{student.studentNameError}}</div>
+                </div>
+                <div class="form-group">
+                    <label>Mobile</label>
+                    <input type="text" id="mobileNum" class="form-control" name="mobile"
+                        placeholder="Mobile eg. +1-xxx-xxx-xxxx" value="{{student.mobile}}"
+                        onkeypress="return isNumberKey(event, 'mobileNum')">
+                    <div class="text-danger">{{student.mobileError}}</div>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-control" name="email" placeholder="Email" value="{{student.email}}">
+                    <div class="text-danger">{{student.emailError}}</div>
+                </div>
+                <div class="form-group">
+                    <label>Date of Birth</label>
+                    <input type="hidden" id="tempDOB" value="{{student.dateOfBirth}}" />
+                    <div class="datepicker date p-0 input-group">
+                        <input type="text" placeholder="Choose a date" class="form-control" name="dateOfBirth"
+                            style="background-color: white;" readonly>
+                        <div class="input-group-append"><span class="input-group-text date-pick-icon"><i
+                                    class="fa fa-calendar"></i></span></div>
+                    </div>
+                    <div class="text-danger">{{student.dateOfBirthError}}</div>
+                </div>
+                <div class="form-group">
+                    <label>Batch</label>
+                    <input type="hidden" id="tempBatch" value="{{student.batch}}" />
+                    <select class="form-control" id="batchSelect" name="batch">
+                        <option disabled selected>Batch...</option>
+                        {{#each batchlist}}
+                        <option value="{{this._id}}">{{this.batchId}} : {{this.batchName}} : Sec-{{this.batchSection}} :
+                            {{this.batchYear}} Year</option>
+                        {{else}}
+                        <option disabled>No batches available...</option>
+                        {{/each}}
+                    </select>
+                    <div class="text-danger">{{student.batchError}}</div>
+                </div>
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary">{{button}}&nbsp;&nbsp;<i
+                            class="fa fa-{{icon}}"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

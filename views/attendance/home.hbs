@@ -1,0 +1,52 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col" style="padding-top: 10px;">
+            <a class="home-icon" href="/teacher-desk" style="float: left;"><i class="fa fa-home"></i></a>
+        </div>
+    </div>
+    <div class="row justify-content-center align-items-center">
+        <div class="col-sm-10 col-md-10 col-lg-10"
+            style="background-color: #fff;margin-top: 3%;margin-bottom:3%;padding:25px;border-radius:6px;">
+            <h3>
+                Attendance
+            </h3><br />
+            <div class="table-responsive-sm table-responsive-md table-responsive-lg">
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col" style="width:5%;">Sr.No.</th>
+                            <th scope="col">Batch</th>
+                            <th scope="col">Subject</th>
+                            <th scope="col" class="text-center" style="width:12%;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each list}}
+                        <tr>
+                            <td>{{inc @index}}</td>
+                            <td>{{this.batch.batchId}} : {{this.batch.batchName}} : Sec-{{this.batch.batchSection}} :
+                                {{this.batch.batchYear}} Year</td>
+                            <td>{{this.subject.subjectId}} : {{this.subject.subjectName}}</td>
+                            <td class="d-flex justify-content-around">
+                                <!--<form action="/attendance/conduct" method="POST" autocomplete="off" style="margin-block-end: 0;">
+                                    <input type="hidden" name="allocation_obj_id" value="{{this._id}}">
+                                    <input type="hidden" name="batch_id" value="{{this.batch._id}}">
+                                    <input type="hidden" name="subject_id" value="{{this.subject._id}}">
+                                    <button type="submit" class="hidden-form-submit-btn"><i class="fa fa-check-square-o fa-lg"
+                                        aria-hidden="true"></i></button>
+                                </form>-->
+                                <a href="/attendance/batch/{{this._id}}"><i class="fa fa-check-square-o fa-lg"
+                                        aria-hidden="true"></i></a>
+                            </td>
+                        </tr>
+                        {{else}}
+                        <tr>
+                            <td colspan="4" class="text-center">No data available</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

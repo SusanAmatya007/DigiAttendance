@@ -1,0 +1,59 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col" style="padding-top: 10px;">
+            <a class="home-icon" href="/admin-desk" style="float: left;"><i class="fa fa-home"></i></a>
+            {{#if errorExists}}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert" style="max-width: 380px;float: right;">
+                <strong>{{errorExists}}</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {{/if}}
+        </div>
+    </div>
+    <div class="row justify-content-center align-items-center">
+        <div class="col-sm-6 col-md-6 col-lg-6"
+            style="background-color: #fff;margin-top: 3%;margin-bottom:3%;padding:25px;border-radius:6px;">
+            <h3 class="text-center">{{formTitle}}&nbsp;&nbsp;<i class="fa fa-user-plus"></i></h3>
+            <hr>
+            <form action="/teacher/addOrUpdate" method="POST" autocomplete="off">
+                <input type="hidden" name="_id" value="{{teacher._id}}">
+                <div class="form-group">
+                    <label>Teacher ID</label>
+                    <input type="text" class="form-control" name="teacherId" placeholder="Teacher ID"
+                        value="{{teacher.teacherId}}">
+                    <div class="text-danger">{{teacher.teacherIdError}}</div>
+                </div>
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" class="form-control" name="fullName" placeholder="Full Name"
+                        value="{{teacher.fullName}}">
+                    <div class="text-danger">{{teacher.fullNameError}}</div>
+                </div>
+                <div class="form-group">
+                    <label>Mobile</label>
+                    <input type="text" id="mobileNum" class="form-control" name="mobile"
+                        placeholder="Mobile eg. +1-xxx-xxx-xxxx" value="{{teacher.mobile}}"
+                        onkeypress="return isNumberKey(event, 'mobileNum')">
+                    <div class="text-danger">{{teacher.mobileError}}</div>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-control" name="email" placeholder="Email" value="{{teacher.email}}">
+                    <div class="text-danger">{{teacher.emailError}}</div>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control" name="password" placeholder="Password"
+                        value="{{password}}">
+                    <div class="text-danger">{{teacher.passwordError}}</div>
+                </div>
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary">{{button}}&nbsp;&nbsp;<i
+                            class="fa fa-{{icon}}"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

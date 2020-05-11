@@ -1,0 +1,86 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col" style="padding-top: 10px;">
+            <a class="home-icon" href="/teacher-desk" style="float: left;"><i class="fa fa-home"></i></a>
+        </div>
+    </div>
+    <div class="row justify-content-center align-items-center">
+        <div class="col-sm-9 col-md-9 col-lg-9"
+            style="background-color: #fff;margin-top: 3%;margin-bottom:3%;padding:25px;border-radius:6px;">
+            <div class="d-flex justify-content-between">
+                <div>
+                    <h4 style="margin-top: 4px;margin-bottom: 4px;margin-right: 10px;">Attendance - {{allocation.batch.batchId}} :
+                        {{allocation.subject.subjectName}}</h4>
+                </div>
+                <div>
+                    <a class="btn btn-danger float-right" href="/attendance/conduct/{{allocation._id}}">Conduct&nbsp;&nbsp;<i class="fa fa-check-square-o" aria-hidden="true"></i></a>
+                </div>
+            </div>
+            <br />
+            <div class="table-responsive-sm table-responsive-md table-responsive-lg">
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col" style="width:20%;">Student ID</th>
+                            <th scope="col">Student Name</th>
+                            <th scope="col">Attendance</th>
+                            <th scope="col" class="text-center" style="width:20%;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each studentList}}
+                        <tr>
+                            <td style="padding-top: 22px;">{{this.studentId}}</td>
+                            <td style="padding-top: 22px;">{{this.studentName}}</td>
+                            <td style="padding-top: 22px;">{{#if this.totalWorkingDays}} {{this.totalPresent}} / {{this.totalWorkingDays}} {{else}} 0 / 0 {{/if}}</td>
+                            <td class="d-flex justify-content-around">
+                                {{#if this.totalWorkingDays}}
+                                    <a class="btn btn-primary" href="/attendance/getStudentSubjectAttendance/student/{{this._id}}/allocation/{{../allocation._id}}">
+                                        View
+                                    </a>
+                                    &nbsp;&nbsp;
+                                    <button class="btn btn-success downloadAttendance" data-url="/attendance/downloadStudentSubjectAttendance/student/{{this._id}}/allocation/{{../allocation._id}}">
+                                        Download
+                                    </button>
+                                {{else}}
+                                    <a class="btn btn-primary" href="#" style="pointer-events: none; cursor: default; opacity:0.8;">
+                                        View
+                                    </a>
+                                    &nbsp;
+                                    <button class="btn btn-success" style="pointer-events: none; cursor: default; opacity:0.8;">
+                                        Download
+                                    </button>
+                                {{/if}}
+                            </td>
+                        </tr>
+                        {{else}}
+                        <tr>
+                            <td colspan="4" class="text-center">No data available</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+            <br/>
+            <div class="d-flex justify-content-between">
+                <input type="hidden" id="allocation_id" value="{{allocation._id}}" />
+                <div style="width: 100%;">
+                    <h6 style="margin-top: 10px;margin-bottom: 2px;">Total Attendance on <strong id="subAttDate">Date</strong> : <span><strong id="subAttDetails" style="white-space: nowrap;">Total
+                        Present / Total Strength</strong></span></h6>
+                </div>
+                <div class="form-group row" style="margin-bottom: 0;margin-right: -10px;">
+                    <label class="col-sm-2 col-md-2 col-lg-2 col-form-label">Date</label>
+                    <div class="col">
+                        <input type="hidden" id="tempAttendanceDate" value="" />
+                        <div class="datepicker date p-0 input-group">
+                            <input type="text" placeholder="Choose a date" class="form-control" name="attendanceDate"
+                                style="background-color: white;" readonly>
+                            <div class="input-group-append"><span class="input-group-text date-pick-icon"><i
+                                        class="fa fa-calendar"></i></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

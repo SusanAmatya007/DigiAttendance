@@ -1,0 +1,67 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col" style="padding-top: 10px;">
+            <a class="home-icon" href="/teacher-desk" style="float: left;"><i class="fa fa-home"></i></a>
+        </div>
+    </div>
+    <div class="row justify-content-center align-items-center">
+        <div class="col-sm-8 col-md-8 col-lg-8"
+            style="background-color: #fff;margin-top: 3%;margin-bottom:3%;padding:25px;border-radius:6px;">
+            <form id="attendanceForm" action="/attendance/conduct/{{allocation._id}}" method="POST" autocomplete="off">
+                <input type="hidden" name="allocation" value="{{allocation._id}}" />
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h5 style="margin-top: 4px;margin-bottom: 4px;">{{allocation.batch.batchId}} <br/>
+                            {{allocation.subject.subjectName}}</h5>
+                    </div>
+                    <div class="form-group row" style="margin-top:10px;margin-bottom: 0;margin-right: -10px;">
+                        <label class="col-sm-2 col-md-2 col-lg-2 col-form-label">Date</label>
+                        <div class="col">
+                            <input type="hidden" id="tempAttendance" value="{{attendance.attendanceDate}}" />
+                            <div class="datepicker date p-0 input-group">
+                                <input type="text" placeholder="Choose a date" class="form-control"
+                                    name="attendanceDate" style="background-color: white;" readonly>
+                                <div class="input-group-append"><span class="input-group-text date-pick-icon"><i
+                                            class="fa fa-calendar"></i></span></div>
+                            </div>
+                            <div class="text-danger">{{attendance.attendanceDateError}}</div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="table-responsive-sm table-responsive-md table-responsive-lg">
+                    <table class="table table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col" style="width:25%;">Student ID</th>
+                                <th scope="col">Student Name</th>
+                                <th scope="col" class="text-center" style="width:16%;">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <input type="hidden" id="studentAttendanceStatus" name="studentAttendanceStatus" value="" />
+                            {{#each studentList}}
+                            <tr>
+                                <td>{{this.studentId}}</td>
+                                <td>{{this.studentName}}</td>
+                                <td class="text-center">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="{{this._id}}" />
+                                    </div>
+                                </td>
+                            </tr>
+                            {{else}}
+                            <tr>
+                                <td colspan="3" class="text-center">No data available</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="form-group text-center">
+                    <button type="button" class="btn btn-primary text-center" id="attendanceSubmitBtn">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

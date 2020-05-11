@@ -1,0 +1,33 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col" style="padding-top: 10px;">
+            <a class="home-icon" href="/admin-desk" style="float: left;"><i class="fa fa-home"></i></a>
+        </div>
+    </div>
+    <div class="row justify-content-center align-items-center">
+        <div class="col-sm-6 col-md-6 col-lg-6"
+            style="background-color: #fff;margin-top: 3%;margin-bottom:3%;padding:25px;border-radius:6px;">
+            <h3 class="text-center">{{formTitle}}</h3>
+            <hr>
+            <form action="/subject/addOrUpdate" method="POST" autocomplete="off">
+                <input type="hidden" name="_id" value="{{subject._id}}">
+                <div class="form-group">
+                    <label>Subject ID</label>
+                    <input type="text" class="form-control" name="subjectId" placeholder="Subject ID"
+                        value="{{subject.subjectId}}">
+                    <div class="text-danger">{{subject.subjectIdError}}</div>
+                </div>
+                <div class="form-group">
+                    <label>Subject Name</label>
+                    <input type="text" class="form-control" name="subjectName" placeholder="Subject Name"
+                        value="{{subject.subjectName}}">
+                    <div class="text-danger">{{subject.subjectNameError}}</div>
+                </div>
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary">{{button}}&nbsp;&nbsp;<i
+                            class="fa fa-{{icon}}"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

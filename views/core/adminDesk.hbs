@@ -1,0 +1,64 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col shadow-content" style="padding-top: 10px;">
+            <h3 class="text-center" style="display:inline-block; color:#FFFFFF;">Welcome! {{user}}</h3>
+            <a class="btn btn-danger float-right" href="/logout">Logout&nbsp;&nbsp;<i class="fa fa-sign-out" aria-hidden="true"></i></a>
+        </div>
+    </div>
+    <div class="row justify-content-center align-items-center">
+        <div class="col-sm-5 col-md-5 col-lg-5" style="background-color: #fff;margin-top: 6%;padding:0;border:0;border-radius:6px;">           
+            <div class="card text-center">
+                <div class="card-header bg-dark">
+                    <ul class="nav nav-tabs card-header-tabs" id="adminFeatures" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="teacher-tab" data-toggle="tab" href="#teacher" role="tab"
+                                aria-controls="teacher" aria-selected="true"><b>Teacher</b></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="subject-tab" data-toggle="tab" href="#subject" role="tab"
+                                aria-controls="subject" aria-selected="false"><b>Subject</b></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="batch-tab" data-toggle="tab" href="#batch" role="tab"
+                                aria-controls="batch" aria-selected="false"><b>Batch</b></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="allocation-tab" data-toggle="tab" href="#allocation" role="tab"
+                                aria-controls="allocation" aria-selected="false"><b>Allocation</b></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-content" id="adminFeaturesContent">
+                    <div class="tab-pane card-body bg-light fade show active" id="teacher" role="tabpanel" aria-labelledby="teacher-tab">
+                        <br/>
+                        <a href="/teacher/list" class="btn btn-dark">View all Teachers</a>
+                        <br/><br/>
+                        <a href="/teacher/addOrUpdate" class="btn btn-dark">Add Teacher</a>
+                        <br/><br/>
+                    </div>
+                    <div class="tab-pane card-body bg-light fade" id="subject" role="tabpanel" aria-labelledby="subject-tab">
+                        <br/>
+                        <a href="/subject/list" class="btn btn-dark">View all Subjects</a>
+                        <br/><br/>
+                        <a href="/subject/addOrUpdate" class="btn btn-dark">Add Subject</a>
+                        <br/><br/>
+                    </div>
+                    <div class="tab-pane card-body bg-light fade" id="batch" role="tabpanel" aria-labelledby="batch-tab">
+                        <br/>
+                        <a href="/batch/list" class="btn btn-dark">View all Batches</a>
+                        <br/><br/>
+                        <a href="/batch/addOrUpdate" class="btn btn-dark">Add Batch</a>
+                        <br/><br/>
+                    </div>
+                    <div class="tab-pane card-body bg-light fade" id="allocation" role="tabpanel" aria-labelledby="allocation-tab">
+                        <br/>
+                        <a href="/allocation/list" class="btn btn-dark">View all Allocations</a>
+                        <br/><br/>
+                        <a href="/allocation/addOrUpdate" class="btn btn-dark">Add Allocation</a>
+                        <br/><br/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

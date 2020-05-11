@@ -1,0 +1,60 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col" style="padding-top: 10px;">
+            <a class="home-icon" href="/admin-desk" style="float: left;"><i class="fa fa-home"></i></a>
+        </div>
+    </div>
+    <div class="row justify-content-center align-items-center">
+        <div class="col-sm-6 col-md-6 col-lg-6"
+            style="background-color: #fff;margin-top: 3%;margin-bottom:3%;padding:25px;border-radius:6px;">
+            <h3 class="text-center">{{formTitle}}</h3>
+            <hr>
+            <form action="/allocation/addOrUpdate" method="POST" autocomplete="off">
+                <input type="hidden" name="_id" value="{{allocation._id}}">
+                <div class="form-group">
+                    <label>Teacher</label>
+                    <input type="hidden" id="tempTeacher" value="{{allocation.teacher}}"/>
+                    <select class="form-control" name="teacher" id="teacherSelect">
+                        <option disabled selected>Teacher...</option>
+                        {{#each teachers}}
+                        <option value="{{this._id}}">{{this.teacherId}} : {{this.fullName}}</option>
+                        {{else}}
+                        <option disabled>No teachers available...</option>
+                        {{/each}}
+                    </select>
+                    <div class="text-danger">{{allocation.teacherError}}</div>
+                </div>
+                <div class="form-group">
+                    <label>Batch</label>
+                    <input type="hidden" id="tempBatch" value="{{allocation.batch}}"/>
+                    <select class="form-control" name="batch" id="batchSelect">
+                        <option disabled selected>Batch...</option>
+                        {{#each batches}}
+                        <option value="{{this._id}}">{{this.batchId}} : {{this.batchName}} : Sec-{{this.batchSection}} : {{this.batchYear}} Year</option>
+                        {{else}}
+                        <option disabled>No batches available...</option>
+                        {{/each}}
+                    </select>
+                    <div class="text-danger">{{allocation.batchError}}</div>
+                </div>
+                <div class="form-group">
+                    <label>Subject</label>
+                    <input type="hidden" id="tempSubject" value="{{allocation.subject}}"/>
+                    <select class="form-control" name="subject" id="subjectSelect">
+                        <option disabled selected>Subject...</option>
+                        {{#each batchSubjects}}
+                        <option value="{{this._id}}">{{this.subjectId}} : {{this.subjectName}}</option>
+                        {{else}}
+                        <option disabled>No subjects available...</option>
+                        {{/each}}
+                    </select>
+                    <div class="text-danger">{{allocation.subjectError}}</div>
+                </div>
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary">{{button}}&nbsp;&nbsp;<i
+                            class="fa fa-{{icon}}"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

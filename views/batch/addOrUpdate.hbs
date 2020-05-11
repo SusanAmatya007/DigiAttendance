@@ -1,0 +1,56 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col" style="padding-top: 10px;">
+            <a class="home-icon" href="/admin-desk" style="float: left;"><i class="fa fa-home"></i></a>
+        </div>
+    </div>
+    <div class="row justify-content-center align-items-center">
+        <div class="col-sm-6 col-md-6 col-lg-6"
+            style="background-color: #fff;margin-top: 3%;margin-bottom:3%;padding:25px;border-radius:6px;">
+            <h3 class="text-center">{{formTitle}}</h3>
+            <hr>
+            <form action="/batch/addOrUpdate" method="POST" autocomplete="off">
+                <input type="hidden" name="_id" value="{{batch._id}}">
+                <div class="form-group">
+                    <label>Batch ID</label>
+                    <input type="text" class="form-control" name="batchId" placeholder="Batch ID"
+                        value="{{batch.batchId}}">
+                    <div class="text-danger">{{batch.batchIdError}}</div>
+                </div>
+                <div class="form-group">
+                    <label>Batch Name</label>
+                    <input type="text" class="form-control" name="batchName" placeholder="Batch Name"
+                        value="{{batch.batchName}}">
+                    <div class="text-danger">{{batch.batchNameError}}</div>
+                </div>
+                <div class="form-group">
+                    <label>Batch Section</label>
+                    <input type="text" class="form-control" name="batchSection" placeholder="Batch Section"
+                        value="{{batch.batchSection}}">
+                    <div class="text-danger">{{batch.batchSectionError}}</div>
+                </div>
+                <div class="form-group">
+                    <label>Batch Year</label>
+                    <input type="text" class="form-control" name="batchYear" placeholder="Batch Year"
+                        value="{{batch.batchYear}}">
+                    <div class="text-danger">{{batch.batchYearError}}</div>
+                </div>
+                <div class="form-group">
+                    <label>Subjects</label>
+                    <input type="hidden" id="tempSubjects" value="{{batch.subjects}}" />
+                    <select class="form-control select2" multiple="multiple" name="subjects" id="subjectSelect">
+                        {{#each subjectlist}}
+                        <option value="{{this._id}}">{{this.subjectId}} : {{this.subjectName}}</option>
+                        {{else}}
+                        <option disabled>No subjects available...</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary">{{button}}&nbsp;&nbsp;<i
+                            class="fa fa-{{icon}}"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
