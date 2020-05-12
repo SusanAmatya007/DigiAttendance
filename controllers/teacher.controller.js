@@ -68,7 +68,7 @@ function insertRecord(req, res) {
                     email,
                 });
                 // Hash Password
-                bcrypt.genSalt(12, (err, salt) => {
+                bcrypt.genSalt(10, (err, salt) => {
                     bcrypt.hash(newTeacher.password, salt, (err, hash) => {
                         if (!err) {
                             // Set Password to hashed
