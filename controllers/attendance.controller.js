@@ -13,6 +13,7 @@ const studentModel = mongoose.model("Student");
 const compile = async function(data) {
     const filePath = path.join(process.cwd(), 'views/attendance', 'studentSubjectAttendance.hbs');
     const html = await fs.readFile(filePath, "utf-8");
+    console.log(filePath)
     return handlebars.compile(html)(data);
 }
 
