@@ -4,6 +4,8 @@ $(function () {
         format: "yyyy-mm-dd",
         todayBtn: "linked",
         todayHighlight: true,
+        daysOfWeekDisabled: [0,6],
+        weekStart: 1
     });
     if ($("#tempAttendance").val().length > 0) {
         var date = $("#tempAttendance").val().split("-")

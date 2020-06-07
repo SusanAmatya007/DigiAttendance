@@ -29,6 +29,13 @@ router.get("/", (req, res) => {
     res.redirect("login");
 });
 
+router.get("/login", (req, res) => {
+    res.render("core/login", {
+        formTitle: "Login",
+        errorExists : req.query.error
+    });
+});
+
 router.get("/admin-desk", ensureSuperAdminAuthenticated, (req, res) => {
     res.render("core/adminDesk", {
         user: req.user.fullName
@@ -38,13 +45,6 @@ router.get("/admin-desk", ensureSuperAdminAuthenticated, (req, res) => {
 router.get("/teacher-desk", ensureTeacherAuthenticated, (req, res) => {
     res.render("core/teacherDesk", {
         user: req.user.fullName
-    });
-});
-
-router.get("/login", (req, res) => {
-    res.render("core/login", {
-        formTitle: "Login",
-        errorExists : req.query.error
     });
 });
 

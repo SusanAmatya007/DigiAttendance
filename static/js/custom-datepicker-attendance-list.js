@@ -4,6 +4,8 @@ $(function () {
         format: "yyyy-mm-dd",
         todayBtn: "linked",
         todayHighlight: true,
+        daysOfWeekDisabled: [0,6],
+        weekStart: 1
     });
     $('.datepicker').datepicker("setDate", new Date());
     $('.datepicker').datepicker("setEndDate", new Date());

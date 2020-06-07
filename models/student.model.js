@@ -12,7 +12,7 @@ var studentSchema = new mongoose.Schema({
     },
     mobile: {
         type: String,
-        required: "This field is reqiured."
+        required: false
     },
     email: {
         type: String,
@@ -35,10 +35,5 @@ studentSchema.path('email').validate((val) => {
     return emailRegex.test(val);
 }, 'Invalid e-mail.');
 
-// Custom validation for mobile
-// studentSchema.path('mobile').validate((val) => {
-//     mobileRegex = /^(\+1\-)([0-9]{3})(\-)[\0-9]{3}(\-)[0-9]{4}$/;
-//     return mobileRegex.test(val);
-// }, 'Invalid. eg.- +1-xxx-xxx-xxxx');
 
 module.exports = mongoose.model('Student', studentSchema);

@@ -146,7 +146,18 @@ router.post("/getSubjectAttendance", (req, res) => {
 });
 
 function getStudentSubjectDetails(student_id, allocation_id, callback) {
-    attendanceModel.find({ student:student_id, allocation:allocation_id }).populate("student").populate({path:"allocation", model:"Allocation", populate : [{ path:"batch", model:"Batch" },{ path:"subject", model:"Subject" }]}).lean().exec((error, docs) => {
+    attendanceModel.find({ student:student_id, allocation:allocation_id }).populate("student").populate({
+        path:"allocation", 
+        model:"Allocation", 
+        populate : [{ 
+            path:"batch", 
+            model:"Batch" 
+        },
+        { 
+            path:"subject", 
+            model:"Subject" 
+        }]
+    }).lean().exec((error, docs) => {
         if(!error) {
             if (docs.length !=0) {
                 var student = docs[0].student;
